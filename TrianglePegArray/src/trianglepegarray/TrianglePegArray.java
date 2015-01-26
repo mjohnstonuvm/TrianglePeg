@@ -1,5 +1,5 @@
 
-package trianglepegarray;
+//package trianglepegarray;
 
 public class TrianglePegArray {
 
