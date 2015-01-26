@@ -1,5 +1,5 @@
 
-//package trianglepegarray;
+//package trianglepegarray1;
 public class TrianglePegArray {
 
     //Declares an 2D array to store x's and o's
