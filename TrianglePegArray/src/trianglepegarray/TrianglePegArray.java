@@ -2,20 +2,31 @@
 package trianglepegarray;
 public class TrianglePegArray {
 
-    //Declares an 2D array to store x's and o's
-    private static Node[][] Triangle = {{'x'}, {'x', 'x'}, {'o', 'x', 'x'}, {'x', 'x', 'x', 'x'}, {'x', 'x', 'x', 'x', 'x'}};
+    //Declares an 2D array 
+    public static Node[][] Triangle = new Node[5][];
 
     /*create nodes from the Node class to store in the indexes
      *
      */
-    public void createNodes() {
-        int num = 0;
+    public TrianglePegArray() { 
+ 
+        Triangle[0] = new Node[1];
+        Triangle[1] = new Node[2];
+        Triangle[2] = new Node[3];
+        Triangle[3] = new Node[4];
+        Triangle[4] = new Node[5];
+        
+        int num = 1;
+        
         for (int i = 0; i < Triangle.length; i++) {
-            for (int j = 0; j < Triangle.length; j++) {
+            for (int j = 0; j < Triangle[i].length; j++) {
                 Triangle[i][j] = new Node(num);
                 num++;
+
             }
+
         }
+        
         createNeighbors();
     }
     /*
@@ -24,9 +35,9 @@ public class TrianglePegArray {
     public void createNeighbors(){
         
             //loop to create sw and se neighbors with columns
-            for (int i = 0; i < Triangle.length; i++) {
+            for (int i = 0; i < Triangle[i].length; i++) {
                 
-                if(!(Triangle[i]+1 > Triangle[0].length)){
+                if(i + 1 < Triangle[i].length){
                     
                     Triangle[i].setNeighbor("sw",Triangle[i]+1);
                     Triangle[i+1].setNeighbor("ne",Triangle[i]);
@@ -57,14 +68,14 @@ public class TrianglePegArray {
     /*
      * Returns given peg at the current index
      */
-    public int getNode(int i, int j) {
+ /*   public int getNode(int i, int j) {
         return Triangle[i][j];
-    }
+    }*/
 
     /*
      * Changes the index (needs to be changed)
      */
-    public void changeNode(int i, int j) {
+/*    public void changeNode(int i, int j) {
         if (Triangle[i][j] == 'x') {
             Triangle[i][j] = 'o';
         } else {
@@ -72,16 +83,17 @@ public class TrianglePegArray {
         }
         print();
     }
-
+*/
     /*
      * Prints out the array 
      */
     public void print() {
-        for (char[] Triangle1 : Triangle) {
-            for (int j = 0; j < Triangle1.length; j++) {
-                System.out.print(Triangle1[j] + " ");
+        for (int i = 0; i < Triangle.length; i++) {
+            for (int j = 0; j < Triangle[i].length; j++) {
+                System.out.print(Triangle[i][j].getLabel() + " ");
             }
             System.out.println();
         }
     }
+    
 };
