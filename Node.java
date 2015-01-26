@@ -1,9 +1,16 @@
 import java.util.*;
 
 /*
-   Each node represents a hole on the game board. There are eight
-   possible positions that a neighboring node could be. A node's 
-   label determine where on the game board it is located.
+   Each node represents a hole on the game board. 
+   
+   There are eight possible positions that a neighboring node could be in relation 
+   to another node. 
+   
+   A node's label is which position it is located on the game board. 
+   
+   The label is displayed when a Node is printed to the command
+   line. 
+   
    The peg variable represents whether a node(hole) has a peg in it.
 */
 
@@ -16,16 +23,24 @@ public class Node
    
    private int label;
          
-   private HashMap neighbors = new HashMap();
+   private HashMap<String, Node> neighbors = new HashMap<String, Node>(8);
    
    /*
-      Node constructor must accept label in integer form.
+      Node constructor must accept label in integer form. It automatically
+      initializes the keys in neighbors HashMap.
    */
    public Node(int label) 
    {
       this.label = label;
       
-      neighbors = startHashMap();
+      neighbors.put("n", null);
+      neighbors.put("ne", null);
+      neighbors.put("e", null);
+      neighbors.put("se", null);
+      neighbors.put("s", null);
+      neighbors.put("sw", null);
+      neighbors.put("w", null);
+      neighbors.put("nw", null);
    } 
     
    /*
@@ -53,23 +68,28 @@ public class Node
    {
       return label;
    }
-      
-   /*
-      startHashMap initializes all 8 possible neighbors of a node(hole) to be null.
-      This should only be called when Node is first constructed.
-   */
    
-   private HashMap startHashMap()
+   /*
+      Setter and getter for Node neighbors. 
+   */   
+   public void setNeighbor(String direction, Node neighbor)
    {
-      neighbors.put("n", null);
-      neighbors.put("ne", null);
-      neighbors.put("e", null);
-      neighbors.put("se", null);
-      neighbors.put("s", null);
-      neighbors.put("sw", null);
-      neighbors.put("w", null);
-      neighbors.put("nw", null);
- 
-      return neighbors;
-   } 
+      if(neighbors.containsKey(direction))//Direction should already exist in HashMap. This replaces value of preexisting direction key.
+      {
+         neighbors.put(direction, neighbor);
+      }
+   }
+   
+   public Node getNeighbor(String direction)
+   {
+      return neighbors.get(direction);
+   }
+   
+   /*
+      toString method returns string version of label variable.
+   */
+   public String toString()
+   {
+      return Integer.toString(label);
+   }
 }
