@@ -1,4 +1,3 @@
-package trianglepegarray;
 
 public class Board {
 
