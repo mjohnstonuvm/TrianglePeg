@@ -19,9 +19,10 @@ import java.util.*;
          userName = getUserName();
          System.out.println("Welcome to Peg Solitaire " + userName); 
          
+        
          //Gets game type True = Triangle False = Cross
          gameType = getGameType();
-         if(gameType == true) {
+        /* if(gameType == true) {
             System.out.println("**********************************Instructions*************************************");
             System.out.println("Jump one peg over another into an empty spot, removing the jumped peg from the board");
             System.out.println("You can jump in any direction parallel to the edges of the board");
@@ -37,7 +38,30 @@ import java.util.*;
             //playgame
         
          }//else if      
+          */ 
+          
+          instructions = getInstructions();
+          if(gameType == true) && (instructions = true){
+            System.out.println("**********************************Instructions*************************************");
+            System.out.println("Jump one peg over another into an empty spot, removing the jumped peg from the board");
+            System.out.println("You can jump in any direction parallel to the edges of the board");
+            System.out.println("The goal of the game is the finish with one peg left on the board");
+          }
+          
+          else if (gameType == false && (instructions = true) {
+            System.out.println("**********************************Instructions*************************************");
+            System.out.println("Jump one peg over another into an empty spot, removing the jumped peg from the board");
+            System.out.println("You can jump vertically and horizontally not diagonally");
+            System.out.println("The goal of the game is to finish with only one peg on the board");
+          }
+          
+          else 
+            /*test line*/ System.out.println("test test test");
+          
+          
+
             
+           
            
      }//main
          
@@ -65,7 +89,7 @@ import java.util.*;
             return false;
       }//getGameType
       
-      /*
+      
       //This function finds out if the user needs instructions or not
       public static boolean getInstructions() {
          String inputString;
@@ -78,5 +102,6 @@ import java.util.*;
          else 
             return false;
       }//getInstructions
-      */  
+        
+      
 }//class         
