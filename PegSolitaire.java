@@ -120,11 +120,11 @@ public class PegSolitaire {
       return jumps;
    }
    
-   /*Call this with your TrianglePegArray as an argument to print out a key and a representation of
-    *which holes are and aren't filled
-    */
+   	/*Call this with your TrianglePegArray as an argument to print out a key and a representation of
+    	*which holes are and aren't filled
+    	*/
    
-   public static void displayTriangle(TrianglePegArray Triangle) {
+   	public static void displayTriangle(TrianglePegArray Triangle) {
 		
 		System.out.println("Key:");
 		
@@ -156,10 +156,10 @@ public class PegSolitaire {
 			
 			for (int k=0; k<(i+1); k++) {
 				if (Triangle.Triangle[i][k].getPeg()) {
-					System.out.print("x");	//if the node has a peg
+					System.out.print("\u25CF");	//if the node has a peg
 				}
 				else {
-					System.out.print("o");	//if the node has no peg
+					System.out.print("\u25CB");	//if the node has no peg
 				}	
 				System.out.print("     ");	
 			}
@@ -169,8 +169,8 @@ public class PegSolitaire {
 	}
    
 	/*Call this with your Board as an argument to print out a key and a representation of
-    *which holes are and aren't filled
-    */
+    	*which holes are and aren't filled
+    	*/
 	public static void displayCross(Board Cross) {
 	
 	 	System.out.println("Key:");
@@ -211,10 +211,10 @@ public class PegSolitaire {
 				System.out.print("          ");
 				for (int j=3; j<6; j++) {
 					if (Cross.Board[j][i].getPeg()) {	//I had this as [i][j] but then say you did i=col j=row, switched mine for now
-						System.out.print("x");	//if the node has a peg
+						System.out.print("\u25CF");	//if the node has a peg
 					}
 					else {
-						System.out.print("o");	//if the node has no peg
+						System.out.print("\u25CB");	//if the node has no peg
 					}
 					System.out.print("    ");
 				}
