@@ -12,8 +12,8 @@ public class Board {
         
          ********NOTE********
          *********NOTE********
-        INDEX i IS COLS 
-        INDEX j IS ROWS
+        INDEX i IS ROWS 
+        INDEX j IS COLS
         
         */
         
