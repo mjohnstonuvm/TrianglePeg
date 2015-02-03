@@ -1,3 +1,4 @@
+//(Colin)
 import java.util.*;
 
 /*
@@ -42,7 +43,7 @@ public class Node
       neighbors.put("w", null);
       neighbors.put("nw", null);
    } 
-    
+       
    /*
       Setter and getter for "peg" variable.
    */ 
