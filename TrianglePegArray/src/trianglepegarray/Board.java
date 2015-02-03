@@ -45,17 +45,6 @@ public class Board {
 
         }
 
-        for (int i = 0; i < Board.length; i++) {
-
-            for (int j = 0; j < Board[i].length; j++) {
-
-                System.out.print(Board[i][j] + " ");
-
-            }
-
-            System.out.println();
-        }
-
         //function call
         createNeighbors();
     }
