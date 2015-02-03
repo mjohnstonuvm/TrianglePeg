@@ -1,7 +1,9 @@
+
+//(Matt)
 public class Board {
 
     //Declares an 2D array
-    private Node[][] Board = new Node[9][9];
+    public Node[][] Board = new Node[9][9];
 
     public Board() {
 
@@ -16,12 +18,12 @@ public class Board {
         
         */
         
-        for (int i = 1; i < 8; i++) {
+        for (int i = 1; i < 9; i++) {
 
             //creates the constraint on the cols, sets everyting else to null
             if (i < 3 || i > 5) {
 
-                for (int j = 4; j < 7; j++) {
+                for (int j = 3; j <= 5; j++) {
 
                     //gives the node a number
                     Board[i][j] = new Node(num);
@@ -55,7 +57,7 @@ public class Board {
         for (int i = 1; i < 8; i++) {
 
             //this is for the rows
-            for (int j = 1; j < 7; j++) {
+            for (int j = 1; j < 8; j++) {
 
                 //gets east neighbor if not null
                 if (Board[i][j + 1] != null && Board[i][j] != null) {
@@ -73,19 +75,13 @@ public class Board {
 
                 }
 
-                //gets west neighbor if not null
-                //Also has a constraint on the vertical axis
-                if (i < 7 && Board[i][j] != null) {
-
-                    //gets south neighbor if not null
-                    if (Board[i + 1][j] != null) {
-
-                        //Sets south neighbor 
-                        Board[i][j].setNeighbor("s", Board[i + 1][j]);
-
-                    }
+                //gets south neighbor if not null
+                if (i + 1 <= 7 && Board[i][j] != null) {
+                    //Sets the north neighbors
+                    Board[i][j].setNeighbor("s", Board[i + 1][j]);
+                    
                 }
-
+                
                 //gets north neighbor if not null
                 if (i - 1 > 0 && Board[i][j] != null) {
 
@@ -96,6 +92,6 @@ public class Board {
             }
 
         }
-
+        System.out.println("");
     }
 }
