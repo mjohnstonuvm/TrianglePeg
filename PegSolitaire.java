@@ -222,10 +222,10 @@ public class PegSolitaire {
 			else {
 				for (int k=1; k<8; k++) {
 					if (Cross.Board[k][i].getPeg()) {	//I had this as [i][k] but then say you did i=col j=row, switched mine for now
-						System.out.print("x");	//if the node has a peg
+						System.out.print("\u25CF");	//if the node has a peg
 					}
 					else {
-						System.out.print("o");	//if the node has no peg
+						System.out.print("\u25CB");	//if the node has no peg
 					}
 					System.out.print("    ");
 				}
