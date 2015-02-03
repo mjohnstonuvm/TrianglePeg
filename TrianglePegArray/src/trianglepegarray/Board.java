@@ -1,4 +1,3 @@
-
 public class Board {
 
     //Declares an 2D array
@@ -8,14 +7,22 @@ public class Board {
 
         int num = 0; //counter
 
-        //index i is cols, j is rows
+        /*
+        
+         ********NOTE********
+         *********NOTE********
+        INDEX i IS COLS 
+        INDEX j IS ROWS
+        
+        */
+        
         for (int i = 1; i < 8; i++) {
 
             //creates the constraint on the cols, sets everyting else to null
             if (i < 3 || i > 5) {
 
                 for (int j = 4; j < 7; j++) {
-                    
+
                     //gives the node a number
                     Board[i][j] = new Node(num);
 
@@ -26,7 +33,7 @@ public class Board {
 
                 //creates constraint on the rows, everything else is null
                 for (int j = 1; j < 8; j++) {
-                    
+
                     //gives the node a number
                     Board[i][j] = new Node(num);
 
@@ -36,6 +43,17 @@ public class Board {
                 }
             }
 
+        }
+
+        for (int i = 0; i < Board.length; i++) {
+
+            for (int j = 0; j < Board[i].length; j++) {
+
+                System.out.print(Board[i][j] + " ");
+
+            }
+
+            System.out.println();
         }
 
         //function call
@@ -51,39 +69,39 @@ public class Board {
             for (int j = 1; j < 7; j++) {
 
                 //gets east neighbor if not null
-                if (Board[i][j + 2] != null && Board[i][j] != null) {
-                    
+                if (Board[i][j + 1] != null && Board[i][j] != null) {
+
                     //Sets east neighbor to the node
-                    Board[i][j].setNeighbor("e", Board[i][j + 2]);
+                    Board[i][j].setNeighbor("e", Board[i][j + 1]);
 
                 }
 
                 //gets west neighbor if not null
-                if (j - 2 > 0 && Board[i][j] != null) {
+                if (j - 1 > 0 && Board[i][j] != null) {
 
                     //Sets west neighbor to the node
-                    Board[i][j].setNeighbor("w", Board[i][j - 2]);
+                    Board[i][j].setNeighbor("w", Board[i][j - 1]);
 
                 }
-                
+
                 //gets west neighbor if not null
                 //Also has a constraint on the vertical axis
                 if (i < 7 && Board[i][j] != null) {
-                    
+
                     //gets south neighbor if not null
-                    if (Board[i + 2][j] != null) {
+                    if (Board[i + 1][j] != null) {
 
                         //Sets south neighbor 
-                        Board[i][j].setNeighbor("s", Board[i + 2][j]);
+                        Board[i][j].setNeighbor("s", Board[i + 1][j]);
 
                     }
                 }
-                
+
                 //gets north neighbor if not null
-                if (i - 2 > 0 && Board[i][j] != null) {
+                if (i - 1 > 0 && Board[i][j] != null) {
 
                     //Sets the north neighbors
-                    Board[i][j].setNeighbor("n", Board[i - 2][j]);
+                    Board[i][j].setNeighbor("n", Board[i - 1][j]);
 
                 }
             }
